@@ -74,7 +74,7 @@ AI-Assisted-Text-Classification/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ai-assisted-text-classification.git
+git clone https://github.com/Susmita-Dev-04/ai-assisted-text-classification.git
 cd ai-assisted-text-classification
 ```
 
