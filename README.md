@@ -3,7 +3,7 @@
 A backend REST API that classifies free-form input text into one of four categories - **Complaint**, **Query**, **Feedback**, or **Other** - using an AI model (Groq), with a custom fallback confidence engine for reliability.
 
 
-📄 **[Read the full Solution Explanation PDF](./INT_Global_AI_Text_Classification_Solution.pdf)** — covers architecture diagrams, flowcharts, and design decisions in detail.
+📄 **[Read the full Solution Explanation PDF](./INT_Global_AI_Text_Classification_Solution.pdf)** : covers architecture diagrams, flowcharts, and design decisions in detail.
 
 Built as part of the Backend Assignment (Assignment 1) for Indus Net Technologies Ltd.
 
