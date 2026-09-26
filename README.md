@@ -243,20 +243,20 @@ curl -X POST http://localhost:5000/api/classify -H "Content-Type: application/js
 
 ---
 
-## Development Journey — What I Built, Step by Step
+## Development Journey : What I Built, Step by Step
 
 I approached this assignment the way I'd approach a real production task: plan the contract first, then build layer by layer, testing at every step rather than writing everything and debugging at the end.
 
-1. **Planned the request/response contract before writing any code** — decided on the exact shape of the input (`{ text }`) and output (`{ category, confidence }`) upfront, so every later layer had a clear target to build toward.
-2. **Scaffolded the project** — initialized `npm`, installed `express`, `dotenv`, `cors`, `axios`, and `nodemon`, and set up a clean folder structure (`controllers/`, `services/`, `routes/`) instead of a single flat file, to keep responsibilities separated.
-3. **Built the Express app skeleton first** (`app.js` + `server.js`) with a 404 handler and a global error handler in place *before* adding any real routes — so the app had a safety net from the start.
-4. **Wired up routing** (`POST /api/classify`) before the controller/service existed, deliberately, to confirm the app structure and imports were correct (I expected — and got — a "module not found" error at this stage, which confirmed the wiring was right and only the file was missing).
-5. **Built the controller and service layer together** — controller for input validation and HTTP response shaping, service for the actual Groq API call and response parsing.
-6. **Chose Groq as the AI provider** after checking that OpenAI's API no longer offers reliable free credits for new accounts — Groq offered a genuinely free tier with no credit card, which fit an assignment context well.
-7. **Designed the prompt and picked a model** — initially picked `llama-3.3-70b-versatile`, but on checking Groq's live model list, that model wasn't available anymore, so I switched to `openai/gpt-oss-20b`, which worked correctly and reliably returns structured JSON.
-8. **Hardened error handling** — added input length limits, type checks, a request timeout on the AI call, and a custom error flag to distinguish "AI provider issue" from "my own bug," so the API responds with accurate status codes in every failure scenario.
-9. **Wrote the fallback classifier** — my own keyword-based logic, used only when the AI response is unusable, so the API is resilient even if the AI provider is completely down.
-10. **Built and tested the Postman collection** — created requests covering all four categories plus edge cases, and verified them against the running server.
+1. **Planned the request/response contract before writing any code** : decided on the exact shape of the input (`{ text }`) and output (`{ category, confidence }`) upfront, so every later layer had a clear target to build toward.
+2. **Scaffolded the project** : initialized `npm`, installed `express`, `dotenv`, `cors`, `axios`, and `nodemon`, and set up a clean folder structure (`controllers/`, `services/`, `routes/`) instead of a single flat file, to keep responsibilities separated.
+3. **Built the Express app skeleton first** (`app.js` + `server.js`) with a 404 handler and a global error handler in place *before* adding any real routes : so the app had a safety net from the start.
+4. **Wired up routing** (`POST /api/classify`) before the controller/service existed, deliberately, to confirm the app structure and imports were correct (I expected - and got - a "module not found" error at this stage, which confirmed the wiring was right and only the file was missing).
+5. **Built the controller and service layer together** : controller for input validation and HTTP response shaping, service for the actual Groq API call and response parsing.
+6. **Chose Groq as the AI provider** after checking that OpenAI's API no longer offers reliable free credits for new accounts - Groq offered a genuinely free tier with no credit card, which fit an assignment context well.
+7. **Designed the prompt and picked a model** : initially picked `llama-3.3-70b-versatile`, but on checking Groq's live model list, that model wasn't available anymore, so I switched to `openai/gpt-oss-20b`, which worked correctly and reliably returns structured JSON.
+8. **Hardened error handling** : added input length limits, type checks, a request timeout on the AI call, and a custom error flag to distinguish "AI provider issue" from "my own bug," so the API responds with accurate status codes in every failure scenario.
+9. **Wrote the fallback classifier** : my own keyword-based logic, used only when the AI response is unusable, so the API is resilient even if the AI provider is completely down.
+10. **Built and tested the Postman collection** : created requests covering all four categories plus edge cases, and verified them against the running server.
 11. **Wrote this README** and prepared the GitHub repository for submission.
 
 ---
