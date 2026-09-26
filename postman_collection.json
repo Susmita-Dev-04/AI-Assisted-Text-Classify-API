@@ -1,0 +1,170 @@
+{
+  "info": {
+    "name": "AI-Assisted Text Classification API",
+    "description": "Postman collection for testing the text classification endpoint. Classifies input text into Complaint, Query, Feedback, or Other using an AI model (Groq - openai/gpt-oss-20b).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Classify - Complaint example",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"My order hasn't arrived in 2 weeks, this is unacceptable.\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/classify",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "classify"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Classify - Query example",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"What time does the store open tomorrow?\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/classify",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "classify"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Classify - Feedback example",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"I think the app would be better with dark mode.\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/classify",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "classify"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Classify - Other example",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"The sky is blue today.\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/classify",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "classify"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Classify - Error: empty text",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/classify",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "classify"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Classify - Error: missing field",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/classify",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "classify"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Classify - Error: non-string input",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": 12345\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/classify",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "classify"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
